@@ -53,6 +53,8 @@ void setup() {
 
 void loop() {
   int Sensor = digitalRead(avoidpin);
+  
+  display.clearDisplay();
 
   //condition used: if...else condition
   //HIGH = 1 or ON      LOW = 0 or OFF
@@ -76,6 +78,6 @@ void loop() {
     digitalWrite(ledG, HIGH);
     digitalWrite(buzzer,LOW);
   }
-  delay(2000);
-  display.clearDisplay();
+  display.display();
+  delay(1000);
 }
