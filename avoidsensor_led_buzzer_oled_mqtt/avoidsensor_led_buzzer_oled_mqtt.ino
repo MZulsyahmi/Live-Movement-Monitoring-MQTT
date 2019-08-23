@@ -136,6 +136,8 @@ void loop() {
 /************************ The controlled coding ********************************/
 
   int Sensor = digitalRead(avoidpin);
+  
+  display.clearDisplay();
 
   //condition used: if...else condition
   //HIGH = 1 or ON      LOW = 0 or OFF
@@ -143,7 +145,7 @@ void loop() {
     display.setTextColor(WHITE);
     display.setCursor(0, 0);
     display.setTextSize(2);
-    display.print("OBJECT");
+    display.print("OBJECT!");
     i  = 1;                       //call 1 if there is movement
     
     digitalWrite(ledR, HIGH);
@@ -153,7 +155,7 @@ void loop() {
   else{
     display.setTextColor(WHITE);
     display.setCursor(0, 0);
-    display.setTextSize(3);
+    display.setTextSize(2);
     display.print("No Object");
     i  = 0;                       //call 0 if there is no movement
     
@@ -171,8 +173,8 @@ void loop() {
     Serial.println(F("OK!"));
   }
 
-  delay(2000);
-  display.clearDisplay();
+  display.display();
+  delay(1000);
 
   // ping the server to keep the mqtt connection alive
   // NOT required if you are publishing once every KEEPALIVE seconds
